@@ -7,6 +7,7 @@ package employeemanagementsystem;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import com.mysql.jdbc.Driver;
 
 /**
  *
@@ -27,5 +28,14 @@ public class database {
         }catch(Exception e){e.printStackTrace();}
         return null;
     }
-    
+    public static Connection connectDb(String DBName, String user, String password){
+
+        try{
+
+//            Class.forName("com.mysql.jdbc.Driver");
+            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/" + DBName, user, password);
+            return connect;
+        }catch(Exception e){e.printStackTrace();}
+        return null;
+    }
 }
