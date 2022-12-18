@@ -28,14 +28,17 @@ public class database {
         }catch(Exception e){e.printStackTrace();}
         return null;
     }
-    public static Connection connectDb(String DBName, String user, String password){
+    public static Connection connectDb(String DBName, String user, String password, String port){
 
         try{
 
 //            Class.forName("com.mysql.jdbc.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/" + DBName, user, password);
+            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:" + port + "/" + DBName, user, password);
             return connect;
         }catch(Exception e){e.printStackTrace();}
         return null;
+    }
+    public static Connection connectDb(String DBName, String user, String password){
+        return connectDb(DBName, user, password, "3306");
     }
 }
