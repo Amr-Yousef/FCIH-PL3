@@ -16,7 +16,12 @@ import com.mysql.jdbc.Driver;
  * Thanks for the support guys! <3
  */
 public class database {
-    
+    public static String name = "root";
+    public static String password = "password";
+    public static String databaseName = "taskmanagement";
+    public static String port = "3306";
+
+
     public static Connection connectDb(){
         
         try{
